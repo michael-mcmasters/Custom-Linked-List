@@ -41,7 +41,7 @@ public class Main {
         System.out.println("index 1 is " + myList.get(1));
         //System.out.println(myList.remove(1));
         System.out.println("Size is " + myList.size());
-        System.out.println("returned index is " + myList.indexOf(20));
+        System.out.println("returned index is " + myList.indexOf(10));
         System.out.println(myList);
 
 

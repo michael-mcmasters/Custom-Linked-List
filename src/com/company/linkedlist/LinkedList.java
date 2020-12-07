@@ -91,39 +91,27 @@ public class LinkedList<T> {
     }
 
     public Boolean contains(T value) {
-        return null;
+        if (indexOf(value) != -1)
+            return true;
+
+        return false;
     }
 
     public Integer indexOf(T value) {
         if (head == null) return -1;
         if (head.value == value) return 0;
 
-        int index = 0;
-        Node currentNode = head;
-        while (currentNode.getNextNode() != null) {
+        Node currentNode = head.getNextNode();
+        int index = 1;
+        while (currentNode != null) {
             if (currentNode.value == value)
-                break;
+                return index;
 
             currentNode = currentNode.getNextNode();
             index++;
         }
-        return index;
 
-
-//        // Start at 1 because we know there is a head node.
-//        int index = 0;
-//        Node currentNode = head;
-//        boolean nextNodeIsNull = false;
-//        while (!nextNodeIsNull) {
-//            Node nextNode = currentNode.getNextNode();
-//            if (nextNode == null) {
-//                nextNodeIsNull = true;
-//                break;
-//            }
-//            currentNode = nextNode;
-//            index++;
-//        }
-//        return index;
+        return -1;
     }
 
     private Node getNodeAtIndex(Integer index) {
