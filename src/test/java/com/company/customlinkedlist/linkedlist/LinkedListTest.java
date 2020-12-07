@@ -22,6 +22,19 @@ public class LinkedListTest {
     @Test
     public void constructorTestB() {
         // Given
+        LinkedList<String> list = new LinkedList<>("OneElement");
+
+        // When
+        int expected = 1;
+        int actual = list.size();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void constructorTestC() {
+        // Given
         LinkedList<String> list = new LinkedList<>("Peter", "Kevin", "Angelino");
 
         // When
@@ -33,7 +46,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void constructorTestC() {
+    public void constructorTestD() {
         // Given
         String[] names = { "Peter", "Kevin", "Angelino", "Jackson" };
         LinkedList<String> list = new LinkedList<>(names);
@@ -64,12 +77,10 @@ public class LinkedListTest {
     public void addTestA() {
         // Given
         LinkedList<String> list = new LinkedList<>();
-        list.add("first");
-        list.add("second");
-        list.add("third");
+        list.add("OneElement");
 
         // When
-        int expected = 3;
+        int expected = 1;
         int actual = list.size();
 
         // Then
