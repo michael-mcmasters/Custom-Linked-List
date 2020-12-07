@@ -26,36 +26,23 @@ public class LinkedList {
         }
     }
 
-//    public String get(Integer index) {
-//        Node currentNode = head;
-//        for (int i = 0; i <= index; i++) {
-//            if (i == index) {
-//                return currentNode.value;
-//            }
-//            currentNode = currentNode.getNextNode();
-//
-//            // Index out of range.
-//            if (currentNode == null) {
-//                System.out.println("Index is out of range of list.");
-//                return null;
-//            }
-//        }
-//        return null;
-//    }
-
     // Gets value at index.
     public String get(Integer index) {
-        return getNode(index).value;
+        return getNodeAtIndex(index).value;
     }
 
     // Removes node from list and returns it.
     public Node remove(Integer index) {
-        Node node = getNode(index);
-        // todo remove node.
-        return node;
+        Node prevNode = getNodeAtIndex(index - 1);
+        Node nodeToRemove = prevNode.getNextNode();
+        Node nextNode = nodeToRemove.getNextNode();
+
+        prevNode.setNextNode(nextNode);
+
+        return nodeToRemove;
     }
 
-    private Node getNode(Integer index) {
+    private Node getNodeAtIndex(Integer index) {
         if (head == null) {
             System.out.println("There are no items in list.");
         }
