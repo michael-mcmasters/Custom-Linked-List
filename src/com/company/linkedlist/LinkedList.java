@@ -63,11 +63,6 @@ public class LinkedList<T> {
         }
     }
 
-    // Gets value at index.
-    public T get(Integer index) {
-        return (T) getNodeAtIndex(index).value;
-    }
-
     // Removes node from list and returns it.
     public T remove(Integer index) {
         if (index == 0) {
@@ -90,12 +85,9 @@ public class LinkedList<T> {
         return (T) nodeToRemove.value;
     }
 
-    // Returns true if list contains pass value, false if not.
-    public Boolean contains(T value) {
-        if (indexOf(value) != -1)
-            return true;
-
-        return false;
+    // Gets value at index.
+    public T get(Integer index) {
+        return (T) getNodeAtIndex(index).value;
     }
 
     // Returns the index of the value passed.
@@ -116,7 +108,29 @@ public class LinkedList<T> {
         return -1;
     }
 
-    // Returns the node at the given index.
+    // Returns true if list contains pass value, false if not.
+    public Boolean contains(T value) {
+        if (indexOf(value) != -1)
+            return true;
+
+        return false;
+    }
+
+    // Returns the number of items in the list.
+    public Integer size() {
+        if (head == null) {
+            return 0;
+        }
+        int nodeCount = 0;
+        Node currentNode = head;
+        while (currentNode != null) {
+            nodeCount++;
+            currentNode = currentNode.getNextNode();
+        }
+        return nodeCount;
+    }
+
+    // Helper method that returns the node at the given index.
     private Node getNodeAtIndex(Integer givenIndex) {
         if (head == null || givenIndex < 0) {
             System.out.println("Index " + givenIndex + " is out of range");
@@ -134,19 +148,5 @@ public class LinkedList<T> {
 
         System.out.println("Index " + index + " is out of range");
         return null;
-    }
-
-    // Returns the number of items in the list.
-    public Integer size() {
-        if (head == null) {
-            return 0;
-        }
-        int nodeCount = 0;
-        Node currentNode = head;
-        while (currentNode != null) {
-            nodeCount++;
-            currentNode = currentNode.getNextNode();
-        }
-        return nodeCount;
     }
 }

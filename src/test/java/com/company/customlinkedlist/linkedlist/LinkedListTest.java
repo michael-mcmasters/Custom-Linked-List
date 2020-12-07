@@ -61,6 +61,81 @@ public class LinkedListTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void removeTest() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("second");
+        list.add("third");
+        list.add("fourth");
+        list.remove(1);
+
+        // When
+        String expected = "[first, third, fourth]";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    // Get first element
+    public void getTestA() {
+        // Given
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+
+        // When
+        int expected = 0;
+        int actual = list.get(0);
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    // Get middle element
+    public void getTestB() {
+        // Given
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+
+        // When
+        int expected = 20;
+        int actual = list.get(2);
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    // Get last element
+    public void getTestC() {
+        // Given
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+
+        // When
+        int expected = 40;
+        int actual = list.get(4);
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
 
 
 
