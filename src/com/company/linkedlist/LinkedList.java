@@ -13,9 +13,7 @@ public class LinkedList<T> {
     // Or
     // LinkedList list = new LinkedList("value1");
     public LinkedList(T... newValues) {
-        for (T value : newValues) {
-            add(value);
-        }
+        add(newValues);
     }
 
     public LinkedList() {
@@ -47,21 +45,25 @@ public class LinkedList<T> {
     }
 
     // Adds new item to list.
-    public void add(T newValue) {
-        if (head == null) {
-            // List has no values. Create head.
-            head = new Node(newValue);
-        } else if (tail == null) {
-            // List only has 1 value. Create tail.
-            tail = new Node(newValue);
-            head.setNextNode(tail);
-        } else {
-            // List has at least 2 values. Point current tail to new tail.
-            Node newTail = new Node(newValue);
-            tail.setNextNode(newTail);
-            tail = newTail;
+    public void add(T... newValues) {
+        for (T value : newValues) {
+            if (head == null) {
+                // List has no values. Create head.
+                head = new Node(value);
+            } else if (tail == null) {
+                // List only has 1 value. Create tail.
+                tail = new Node(value);
+                head.setNextNode(tail);
+            } else {
+                // List has at least 2 values. Point current tail to new tail.
+                Node newTail = new Node(value);
+                tail.setNextNode(newTail);
+                tail = newTail;
+            }
         }
     }
+
+
 
     // Removes node from list and returns it.
     public T remove(Integer index) {
