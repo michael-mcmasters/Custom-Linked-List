@@ -13,13 +13,19 @@ public class LinkedList {
     public String toString() {
         StringBuffer sb = new StringBuffer();
         Integer listSize = size();
-        sb.append("[");
+        if (listSize == 0)
+            return "A custom implementation of a Linked List. This list holds no values.";
+
+        Node currentNode = head;
         for (int i = 0; i < listSize; i++) {
-            if (i < listSize - 1) {
-                sb.append(String.format("%s, ", "node"));
+            if (i == 0) {
+                sb.append(String.format("[%s, ", currentNode));
+            } else if (i < listSize - 1) {
+                sb.append(String.format("%s, ", currentNode));
             } else {
-                sb.append(String.format("%s]", "node"));
+                sb.append(String.format("%s]", currentNode));
             }
+            currentNode = currentNode.getNextNode();
         }
         return sb.toString();
     }
@@ -113,20 +119,5 @@ public class LinkedList {
         if (nextNode != null)
             return nextNode;
         return null;
-    }
-
-
-    public Node getHead() {
-        if (head == null)
-            System.out.println("It looks like the list doesn't have any values.");
-        return head;
-    }
-
-    public Node getTail() {
-        if (tail == null) {
-            // If tail is null, there is only one item in the list which is the head. Return that.
-            return getHead();
-        }
-        return tail;
     }
 }

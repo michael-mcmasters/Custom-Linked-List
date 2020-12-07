@@ -4,12 +4,13 @@ public class Node {
     private Node nextNode;
     public String value;
 
-    public Node() {
-
-    }
-
     public Node(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 
     public Node getNextNode() {

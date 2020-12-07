@@ -13,16 +13,13 @@ public class Main {
         linkedList.add("Word2");
         linkedList.add("Word3");
         linkedList.add("Word4");
+        linkedList.add("Word4");
+        linkedList.add("Word4");
+        linkedList.add("Word10");
 
-        System.out.println(linkedList.get(0));
-        System.out.println(linkedList.get(1));
-        System.out.println(linkedList.get(2));
-        System.out.println(linkedList.get(3));
-        System.out.println(linkedList.get(4));
+        linkedList.remove(4);
 
-        linkedList.remove(0);
-
-        System.out.println(linkedList.size());
+        //System.out.println(linkedList.size());
 
 
 
