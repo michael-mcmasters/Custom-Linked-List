@@ -106,7 +106,27 @@ public class LinkedListTest {
     }
 
     @Test
-    public void removeTest() {
+    // Remove first element
+    public void removeTestA() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("second");
+        list.add("third");
+        list.add("fourth");
+        list.remove(0);
+
+        // When
+        String expected = "[second, third, fourth]";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    // Remove middle element
+    public void removeTestB() {
         // Given
         LinkedList<String> list = new LinkedList<>();
         list.add("first");
@@ -117,6 +137,25 @@ public class LinkedListTest {
 
         // When
         String expected = "[first, third, fourth]";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    // Remove last element
+    public void removeTestC() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("second");
+        list.add("third");
+        list.add("fourth");
+        list.remove(3);
+
+        // When
+        String expected = "[first, second, third]";
         String actual = list.toString();
 
         // Then
@@ -274,17 +313,19 @@ public class LinkedListTest {
     @Test
     public void sizeTest() {
         // Given
-        LinkedList<String> list = new LinkedList<>();
-        list.add("a");
-        list.add("b");
-        list.add("b");
-        list.add("b");
-        list.add("c");
-        list.add("a");
-        list.add("a");
+        LinkedList<Character> list = new LinkedList<>();
+        list.add('m');
+        list.add('c');
+        list.add('m');
+        list.add('a');
+        list.add('s');
+        list.add('t');
+        list.add('e');
+        list.add('r');
+        list.add('s');
 
         // When
-        int expected = 7;
+        int expected = 9;
         int actual = list.size();
 
         // Then
