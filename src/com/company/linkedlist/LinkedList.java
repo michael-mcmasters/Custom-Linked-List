@@ -85,7 +85,7 @@ public class LinkedList<T> {
         } else {
             // If removed node didn't have a node after it, it was the tail. Set prevNode to be the tail.
             tail = prevNode;
-            prevNode = null;
+            prevNode.setNextNode(null);
         }
         return (T) nodeToRemove.value;
     }
@@ -144,8 +144,8 @@ public class LinkedList<T> {
         int nodeCount = 0;
         Node currentNode = head;
         while (currentNode != null) {
-            currentNode = currentNode.getNextNode();
             nodeCount++;
+            currentNode = currentNode.getNextNode();
         }
         return nodeCount;
     }
