@@ -11,7 +11,7 @@ public class Main {
         linkedList.add("Word3");
         String value = linkedList.get(0);
         String value1 = linkedList.get(1);
-        String value2 = linkedList.get(2);
+        String value2 = linkedList.get(3);
         System.out.println(value);
         System.out.println(value1);
         System.out.println(value2);

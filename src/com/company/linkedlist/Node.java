@@ -8,8 +8,7 @@ public class Node {
 
     }
 
-    public Node(Node nextNode, String value) {
-        this.nextNode = nextNode;
+    public Node(String value) {
         this.value = value;
     }
 
@@ -21,3 +20,4 @@ public class Node {
         nextNode = node;
     }
 }
+

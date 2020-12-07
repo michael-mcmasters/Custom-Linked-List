@@ -5,23 +5,21 @@ public class LinkedList {
     public Node head;
     public Node tail;
 
-    // Head and tail point to the same node because there are no values added.
     public LinkedList() {
-//        this.head = new Node();
-//        this.tail = head;
+
     }
 
     public void add(String newValue) {
-        // If head is null, list has no values. Create head with new value.
+        // List has no values. Create head.
         if (head == null) {
-            head = new Node(null, newValue);
-        // If tail is null, there is only one value in list. Create tail.
+            head = new Node(newValue);
+        // List only has 1 value. Create next value.
         } else if (tail == null) {
-            tail = new Node(null, newValue);
+            tail = new Node(newValue);
             head.setNextNode(tail);
-        // Else, point the current tail to a new tail
+        // Head has at least 2 values. Point current tail to new tail.
         } else {
-            Node newTail = new Node(null, newValue);
+            Node newTail = new Node(newValue);
             tail.setNextNode(newTail);
         }
     }
@@ -33,17 +31,27 @@ public class LinkedList {
                 return currentNode.value;
             }
             currentNode = currentNode.getNextNode();
+
+            // Index out of range.
+            if (currentNode == null) {
+                System.out.println("Index is out of range of list.");
+                return null;
+            }
         }
         return null;
     }
 
     public Node getHead() {
-        return null;
+        if (head == null)
+            System.out.println("It looks like the list doesn't have any values.");
+        return head;
     }
 
-    // Loop through every node and check node.getNext().
-    // If getNext() is null, it is the last node in the list.
     public Node getTail() {
-        return null;
+        if (tail == null) {
+            // If tail is null, there is only one item in the list which is the head. Return that.
+            return getHead();
+        }
+        return tail;
     }
 }
