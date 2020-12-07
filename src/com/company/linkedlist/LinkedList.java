@@ -38,6 +38,7 @@ public class LinkedList<T> {
     }
 
     // Adds new item(s) to list.
+    // (T... is called the varargs element.)
     public void add(T... newValues) {
         for (T value : newValues) {
             if (head == null) {

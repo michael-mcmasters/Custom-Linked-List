@@ -61,14 +61,44 @@ public class LinkedListTest {
     }
 
     @Test
-    public void addTest() {
+    public void addTestA() {
         // Given
         LinkedList<String> list = new LinkedList<>();
-        list.add("firstEle");
-        list.add("secondEle");
+        list.add("first");
+        list.add("second");
+        list.add("third");
 
         // When
-        int expected = 2;
+        int expected = 3;
+        int actual = list.size();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void addTestB() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first", "second", "third");
+
+        // When
+        int expected = 3;
+        int actual = list.size();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void addTestC() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        String[] words = { "first", "second", "third" };
+        list.add(words);
+
+        // When
+        int expected = 3;
         int actual = list.size();
 
         // Then
