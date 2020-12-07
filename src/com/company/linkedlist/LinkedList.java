@@ -9,6 +9,7 @@ public class LinkedList {
 
     }
 
+    // Add to tail of list.
     public void add(String newValue) {
         // List has no values. Create head.
         if (head == null) {
@@ -21,10 +22,34 @@ public class LinkedList {
         } else {
             Node newTail = new Node(newValue);
             tail.setNextNode(newTail);
+            tail = newTail;
         }
     }
 
+//    public String get(Integer index) {
+//        Node currentNode = head;
+//        for (int i = 0; i <= index; i++) {
+//            if (i == index) {
+//                return currentNode.value;
+//            }
+//            currentNode = currentNode.getNextNode();
+//
+//            // Index out of range.
+//            if (currentNode == null) {
+//                System.out.println("Index is out of range of list.");
+//                return null;
+//            }
+//        }
+//        return null;
+//    }
+
+    // Get value at index.
     public String get(Integer index) {
+        if (head == null) {
+            System.out.println("There are no items in the list.");
+            return null;
+        }
+
         Node currentNode = head;
         for (int i = 0; i <= index; i++) {
             if (i == index) {
@@ -40,6 +65,27 @@ public class LinkedList {
         }
         return null;
     }
+
+    // Returns number of items in list.
+    public Integer size() {
+        if (head == null) {
+            return 0;
+        }
+        int nodeCount = 1;
+        Node currentNode = head;
+        boolean nextNodeIsNull = false;
+        while (!nextNodeIsNull) {
+            Node nextNode = currentNode.getNextNode();
+            if (nextNode == null) {
+                nextNodeIsNull = true;
+                break;
+            }
+            currentNode = nextNode;
+            nodeCount++;
+        }
+        return nodeCount;
+    }
+
 
     public Node getHead() {
         if (head == null)
