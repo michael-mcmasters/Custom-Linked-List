@@ -34,6 +34,7 @@ public class LinkedList {
     // Removes node from list and returns it.
     public Node remove(Integer index) {
         if (index == 0) {
+            // Set 2nd node in list to be the new head
             Node currentHeadNode = head;
             Node newHeadNode = head.getNextNode();
             head = newHeadNode;
@@ -53,8 +54,8 @@ public class LinkedList {
     }
 
     private Node getNodeAtIndex(Integer index) {
-        if (head == null) {
-            System.out.println("There are no items in list.");
+        if (head == null || index < 0) {
+            System.out.println("Index " + index + " is out of range");
         }
         Node currentNode = head;
         for (int i = 0; i <= index; i++) {
