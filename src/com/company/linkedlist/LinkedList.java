@@ -92,6 +92,16 @@ public class LinkedList<T> {
         return (T) getNodeAtIndex(index).value;
     }
 
+    // O(1) Constant Time.
+    public T getFirst() {
+        return (T) head.value;
+    }
+
+    // O(1) Constant Time.
+    public T getLast() {
+        return (T) tail.value;
+    }
+
     // O(n) Linear Time.
     // Returns the index of the value passed.
     public Integer indexOf(T value) {

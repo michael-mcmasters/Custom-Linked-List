@@ -231,6 +231,38 @@ public class LinkedListTest {
     }
 
     @Test
+    public void getFirstTest() {
+        // Given
+        LinkedList<Character> list = new LinkedList<>();
+        list.add('m');
+        list.add('t');
+        list.add('v');
+
+        // When
+        Character expected = 'm';
+        Character actual = list.getFirst();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getLastTest() {
+        // Given
+        LinkedList<Character> list = new LinkedList<>();
+        list.add('m');
+        list.add('t');
+        list.add('v');
+
+        // When
+        Character expected = 'v';
+        Character actual = list.getLast();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     // Get first element
     public void indexOfA() {
         // Given
