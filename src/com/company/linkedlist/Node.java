@@ -2,12 +2,22 @@ package com.company.linkedlist;
 
 public class Node {
     private Node nextNode;
-    private String value;
+    public String value;
+
+    public Node() {
+
+    }
 
     public Node(Node nextNode, String value) {
         this.nextNode = nextNode;
         this.value = value;
     }
 
+    public Node getNextNode() {
+        return nextNode;
+    }
 
+    public void setNextNode(Node node) {
+        nextNode = node;
+    }
 }
