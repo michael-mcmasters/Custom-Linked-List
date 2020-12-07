@@ -2,17 +2,20 @@ package com.company.linkedlist;
 
 public class LinkedList {
 
-    public Node head;
-    public Node tail;
+    private Node head;
+    private Node tail;
 
     public LinkedList() {
 
     }
 
     // Allows you to instantiate object with multiple values or with an array.
+    // String[] myArray = { "value1", "value2", "value3" };
     // LinkedList list = new LinkedList(myArray);
     // Or
-    // LinkedList list = new LinkedList("first", "second", "third");
+    // LinkedList list = new LinkedList("value1", "value2", "value3");
+    // Or
+    // LinkedList list = new LinkedList("value1");
     public LinkedList(String... newValues) {
         for (String value : newValues) {
             add(value);
@@ -45,15 +48,15 @@ public class LinkedList {
 
     // Adds new item to list.
     public void add(String newValue) {
-        // List has no values. Create head.
         if (head == null) {
+            // List has no values. Create head.
             head = new Node(newValue);
-            // List only has 1 value. Create tail.
         } else if (tail == null) {
+            // List only has 1 value. Create tail.
             tail = new Node(newValue);
             head.setNextNode(tail);
-            // List has at least 2 values. Point current tail to new tail.
         } else {
+            // List has at least 2 values. Point current tail to new tail.
             Node newTail = new Node(newValue);
             tail.setNextNode(newTail);
             tail = newTail;
