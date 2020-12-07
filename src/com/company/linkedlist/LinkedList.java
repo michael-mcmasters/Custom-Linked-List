@@ -9,16 +9,16 @@ public class LinkedList {
 
     }
 
-    // Add to tail of list.
+    // Adds new item to list.
     public void add(String newValue) {
         // List has no values. Create head.
         if (head == null) {
             head = new Node(newValue);
-        // List only has 1 value. Create next value.
+        // List only has 1 value. Create tail.
         } else if (tail == null) {
             tail = new Node(newValue);
             head.setNextNode(tail);
-        // Head has at least 2 values. Point current tail to new tail.
+        // List has at least 2 values. Point current tail to new tail.
         } else {
             Node newTail = new Node(newValue);
             tail.setNextNode(newTail);
@@ -43,21 +43,29 @@ public class LinkedList {
 //        return null;
 //    }
 
-    // Get value at index.
+    // Gets value at index.
     public String get(Integer index) {
-        if (head == null) {
-            System.out.println("There are no items in the list.");
-            return null;
-        }
+        return getNode(index).value;
+    }
 
+    // Removes node from list and returns it.
+    public Node remove(Integer index) {
+        Node node = getNode(index);
+        // todo remove node.
+        return node;
+    }
+
+    private Node getNode(Integer index) {
+        if (head == null) {
+            System.out.println("There are no items in list.");
+        }
         Node currentNode = head;
         for (int i = 0; i <= index; i++) {
             if (i == index) {
-                return currentNode.value;
+                return currentNode;
             }
             currentNode = currentNode.getNextNode();
 
-            // Index out of range.
             if (currentNode == null) {
                 System.out.println("Index is out of range of list.");
                 return null;
@@ -71,6 +79,7 @@ public class LinkedList {
         if (head == null) {
             return 0;
         }
+        // Start at 1 because we know there is a head node.
         int nodeCount = 1;
         Node currentNode = head;
         boolean nextNodeIsNull = false;
@@ -84,6 +93,13 @@ public class LinkedList {
             nodeCount++;
         }
         return nodeCount;
+    }
+
+    private Node checkNextNode(Node currentNode) {
+        Node nextNode = currentNode.getNextNode();
+        if (nextNode != null)
+            return nextNode;
+        return null;
     }
 
 

@@ -2,6 +2,8 @@ package com.company;
 
 import com.company.linkedlist.LinkedList;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,5 +21,12 @@ public class Main {
         System.out.println(linkedList.get(4));
 
         System.out.println(linkedList.size());
+
+
+
+//        List<String> list = new java.util.LinkedList<>();
+//        list.add("test");
+//        list.
+
     }
 }
