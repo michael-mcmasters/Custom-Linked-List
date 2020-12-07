@@ -194,28 +194,28 @@ public class LinkedListTest {
     }
 
     @Test
-    public void containsItemTestA() {
+    public void containsItemA() {
         // Given
         LinkedList<String> list = new LinkedList<>();
         list.add("first");
-        list.add("two");
+        list.add("second");
         list.add("third");
         list.add("fourth");
         list.add("fifth");
 
         // When
-        boolean actual = list.contains("two");
+        boolean actual = list.contains("second");
 
         // Then
         Assertions.assertTrue(actual);
     }
 
     @Test
-    public void containsItemTestB() {
+    public void containsItemB() {
         // Given
         LinkedList<String> list = new LinkedList<>();
         list.add("first");
-        list.add("two");
+        list.add("second");
         list.add("third");
         list.add("fourth");
         list.add("fifth");
@@ -227,22 +227,23 @@ public class LinkedListTest {
         Assertions.assertFalse(actual);
     }
 
+    @Test
+    public void sizeTest() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("a");
+        list.add("b");
+        list.add("b");
+        list.add("b");
+        list.add("c");
+        list.add("a");
+        list.add("a");
 
+        // When
+        int expected = 7;
+        int actual = list.size();
 
-
-
-
-
-
-
-    //    @Test
-//    public void constructorTest() {
-//        // Given
-//        LinkedList<String>list = new LinkedList<>();
-//
-//        // When
-//
-//        // Then
-//          Assertions.assertEquals(expected, actual);
-//    }
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
 }
