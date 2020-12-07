@@ -9,6 +9,21 @@ public class LinkedList {
 
     }
 
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        Integer listSize = size();
+        sb.append("[");
+        for (int i = 0; i < listSize; i++) {
+            if (i < listSize - 1) {
+                sb.append("node, ");
+            } else {
+                sb.append("node]");
+            }
+        }
+        return sb.toString();
+    }
+
     // Adds new item to list.
     public void add(String newValue) {
         // List has no values. Create head.

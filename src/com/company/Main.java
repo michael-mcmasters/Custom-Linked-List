@@ -23,12 +23,15 @@ public class Main {
         linkedList.remove(0);
 
         System.out.println(linkedList.size());
+        System.out.println(linkedList);
 
 
 
-//        List<String> list = new java.util.LinkedList<>();
-//        list.add("test");
-//        list.
+        List<String> list = new java.util.LinkedList<>();
+        list.add("test");
+        list.add("hey");
+        list.add("yoo");
+        System.out.println(list);
 
     }
 }
