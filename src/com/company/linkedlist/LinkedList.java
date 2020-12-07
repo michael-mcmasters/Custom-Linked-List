@@ -90,6 +90,7 @@ public class LinkedList<T> {
         return (T) nodeToRemove.value;
     }
 
+    // Returns true if list contains pass value, false if not.
     public Boolean contains(T value) {
         if (indexOf(value) != -1)
             return true;
@@ -97,6 +98,7 @@ public class LinkedList<T> {
         return false;
     }
 
+    // Returns the index of the value passed.
     public Integer indexOf(T value) {
         if (head == null) return -1;
         if (head.value == value) return 0;
@@ -114,6 +116,7 @@ public class LinkedList<T> {
         return -1;
     }
 
+    // Returns the node at the given index.
     private Node getNodeAtIndex(Integer givenIndex) {
         if (head == null || givenIndex < 0) {
             System.out.println("Index " + givenIndex + " is out of range");
@@ -133,7 +136,7 @@ public class LinkedList<T> {
         return null;
     }
 
-    // Returns number of items in list.
+    // Returns the number of items in the list.
     public Integer size() {
         if (head == null) {
             return 0;
