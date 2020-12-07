@@ -9,12 +9,19 @@ public class LinkedList {
 
     }
 
+    public LinkedList(String newValue) {
+        add(newValue);
+    }
+
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
         Integer listSize = size();
         if (listSize == 0)
             return "A custom implementation of a Linked List. This list currently holds no values.";
+
+        if (listSize == 1)
+            return String.format("[%s]", head.value);
 
         Node currentNode = head;
         for (int i = 0; i < listSize; i++) {
