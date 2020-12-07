@@ -13,6 +13,9 @@ public class LinkedList<T> {
         add(newValues);
     }
 
+    // O(n) Linear Time.
+    // Prints every value in list.
+    // Useful for debugging. Will show every value in the list next to the stepping point.
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
@@ -37,7 +40,9 @@ public class LinkedList<T> {
         return sb.toString();
     }
 
-    // Adds new item(s) to list.
+    // O(1) Constant Time when adding a single value.
+    // O(n) Linear Time when adding multiple values, where n is the length of items being added in constant time.
+    // Add item(s) to list.
     // (T... is called the varargs element.)
     public void add(T... newValues) {
         for (T value : newValues) {
@@ -57,8 +62,7 @@ public class LinkedList<T> {
         }
     }
 
-
-
+    // O(n) Linear Time.
     // Removes node from list and returns it.
     public T remove(Integer index) {
         if (index == 0) {
@@ -82,11 +86,13 @@ public class LinkedList<T> {
         return (T) nodeToRemove.value;
     }
 
+    // O(n) Linear Time.
     // Gets value at index.
     public T get(Integer index) {
         return (T) getNodeAtIndex(index).value;
     }
 
+    // O(n) Linear Time.
     // Returns the index of the value passed.
     public Integer indexOf(T value) {
         if (head == null) return -1;
@@ -105,6 +111,7 @@ public class LinkedList<T> {
         return -1;
     }
 
+    // O(n) Linear Time.
     // Returns true if list contains pass value, false if not.
     public Boolean contains(T value) {
         if (indexOf(value) != -1)
@@ -113,6 +120,7 @@ public class LinkedList<T> {
         return false;
     }
 
+    // O(n) Linear Time.
     // Returns the number of items in the list.
     public Integer size() {
         if (head == null) {
@@ -127,6 +135,7 @@ public class LinkedList<T> {
         return nodeCount;
     }
 
+    // O(n) Linear Time.
     // Helper method that returns the node at the given index.
     private Node getNodeAtIndex(Integer givenIndex) {
         if (head == null || givenIndex < 0) {
