@@ -9,8 +9,14 @@ public class LinkedList {
 
     }
 
-    public LinkedList(String newValue) {
-        add(newValue);
+    // Allows you to instantiate object with multiple values or with an array.
+    // LinkedList list = new LinkedList(myArray);
+    // Or
+    // LinkedList list = new LinkedList("first", "second", "third");
+    public LinkedList(String... newValues) {
+        for (String value : newValues) {
+            add(value);
+        }
     }
 
     @Override
