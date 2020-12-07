@@ -136,6 +136,97 @@ public class LinkedListTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    // Get first element
+    public void indexOfA() {
+        // Given
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+
+        // When
+        int expected = 0;
+        int actual = list.indexOf(0);
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    // Get middle element
+    public void indexOfB() {
+        // Given
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+
+        // When
+        int expected = 2;
+        int actual = list.indexOf(20);
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    // Get last element
+    public void indexOfC() {
+        // Given
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+
+        // When
+        int expected = 4;
+        int actual = list.indexOf(40);
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void containsItemTestA() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("two");
+        list.add("third");
+        list.add("fourth");
+        list.add("fifth");
+
+        // When
+        boolean actual = list.contains("two");
+
+        // Then
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    public void containsItemTestB() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("two");
+        list.add("third");
+        list.add("fourth");
+        list.add("fifth");
+
+        // When
+        boolean actual = list.contains("one hundred");
+
+        // Then
+        Assertions.assertFalse(actual);
+    }
+
 
 
 
