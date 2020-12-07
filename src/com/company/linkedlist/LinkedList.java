@@ -1,6 +1,6 @@
 package com.company.linkedlist;
 
-public class LinkedList {
+public class LinkedList<T> {
 
     private Node head;
     private Node tail;
@@ -16,8 +16,8 @@ public class LinkedList {
     // LinkedList list = new LinkedList("value1", "value2", "value3");
     // Or
     // LinkedList list = new LinkedList("value1");
-    public LinkedList(String... newValues) {
-        for (String value : newValues) {
+    public LinkedList(T... newValues) {
+        for (T value : newValues) {
             add(value);
         }
     }
@@ -47,7 +47,7 @@ public class LinkedList {
     }
 
     // Adds new item to list.
-    public void add(String newValue) {
+    public void add(T newValue) {
         if (head == null) {
             // List has no values. Create head.
             head = new Node(newValue);
@@ -64,18 +64,18 @@ public class LinkedList {
     }
 
     // Gets value at index.
-    public String get(Integer index) {
-        return getNodeAtIndex(index).value;
+    public T get(Integer index) {
+        return (T) getNodeAtIndex(index).value;
     }
 
     // Removes node from list and returns it.
-    public Node remove(Integer index) {
+    public T remove(Integer index) {
         if (index == 0) {
             // Sets second node in list to be the new head
             Node currentHeadNode = head;
             Node newHeadNode = head.getNextNode();
             head = newHeadNode;
-            return currentHeadNode;
+            return (T) currentHeadNode.value;
         }
         Node prevNode = getNodeAtIndex(index - 1);
         Node nodeToRemove = prevNode.getNextNode();
@@ -87,7 +87,7 @@ public class LinkedList {
             tail = prevNode;
             prevNode = null;
         }
-        return nodeToRemove;
+        return (T) nodeToRemove.value;
     }
 
     private Node getNodeAtIndex(Integer index) {

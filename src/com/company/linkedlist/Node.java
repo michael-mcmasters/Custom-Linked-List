@@ -1,10 +1,10 @@
 package com.company.linkedlist;
 
-public class Node {
+public class Node<T> {
     private Node nextNode;
-    public String value;
+    public T value;
 
-    public Node(String value) {
+    public Node(T value) {
         this.value = value;
     }
 
