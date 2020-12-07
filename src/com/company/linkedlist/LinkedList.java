@@ -14,11 +14,11 @@ public class LinkedList {
         // List has no values. Create head.
         if (head == null) {
             head = new Node(newValue);
-        // List only has 1 value. Create tail.
+            // List only has 1 value. Create tail.
         } else if (tail == null) {
             tail = new Node(newValue);
             head.setNextNode(tail);
-        // List has at least 2 values. Point current tail to new tail.
+            // List has at least 2 values. Point current tail to new tail.
         } else {
             Node newTail = new Node(newValue);
             tail.setNextNode(newTail);
@@ -33,12 +33,22 @@ public class LinkedList {
 
     // Removes node from list and returns it.
     public Node remove(Integer index) {
+        if (index == 0) {
+            Node currentHeadNode = head;
+            Node newHeadNode = head.getNextNode();
+            head = newHeadNode;
+            return currentHeadNode;
+        }
         Node prevNode = getNodeAtIndex(index - 1);
         Node nodeToRemove = prevNode.getNextNode();
         Node nextNode = nodeToRemove.getNextNode();
-
-        prevNode.setNextNode(nextNode);
-
+        if (nextNode != null) {
+            prevNode.setNextNode(nextNode);
+        } else {
+            // If removed node didn't have a node after it, it was the tail. Set prevNode to be the tail.
+            tail = prevNode;
+            prevNode = null;
+        }
         return nodeToRemove;
     }
 
