@@ -16,9 +16,9 @@ public class LinkedList {
         sb.append("[");
         for (int i = 0; i < listSize; i++) {
             if (i < listSize - 1) {
-                sb.append("node, ");
+                sb.append(String.format("%s, ", "node"));
             } else {
-                sb.append("node]");
+                sb.append(String.format("%s]", "node"));
             }
         }
         return sb.toString();
