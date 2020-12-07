@@ -47,6 +47,20 @@ public class LinkedListTest {
     }
 
     @Test
+    public void toStringTest() {
+        // Given
+        LinkedList<Integer> list = new LinkedList<>(0, 10, 20, 30, 40, 50, 60, 70);
+
+        // When
+        String expected = "[0, 10, 20, 30, 40, 50, 60, 70]";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
     public void addTest() {
         // Given
         LinkedList<String> list = new LinkedList<>();

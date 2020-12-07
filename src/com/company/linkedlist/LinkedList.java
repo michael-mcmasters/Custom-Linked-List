@@ -5,19 +5,12 @@ public class LinkedList<T> {
     private Node head;
     private Node tail;
 
-    // Allows you to instantiate object with multiple values or with an array.
-    // String[] myArray = { "value1", "value2", "value3" };
-    // LinkedList list = new LinkedList(myArray);
-    // Or
-    // LinkedList list = new LinkedList("value1", "value2", "value3");
-    // Or
-    // LinkedList list = new LinkedList("value1");
-    public LinkedList(T... newValues) {
-        add(newValues);
-    }
-
     public LinkedList() {
 
+    }
+
+    public LinkedList(T... newValues) {
+        add(newValues);
     }
 
     @Override
@@ -44,7 +37,7 @@ public class LinkedList<T> {
         return sb.toString();
     }
 
-    // Adds new item to list.
+    // Adds new item(s) to list.
     public void add(T... newValues) {
         for (T value : newValues) {
             if (head == null) {
@@ -74,6 +67,7 @@ public class LinkedList<T> {
             head = newHeadNode;
             return (T) currentHeadNode.value;
         }
+
         Node prevNode = getNodeAtIndex(index - 1);
         Node nodeToRemove = prevNode.getNextNode();
         Node nextNode = nodeToRemove.getNextNode();
