@@ -39,8 +39,18 @@ public class Main {
         myList.add(10);
         myList.add(20);
         System.out.println("index 1 is " + myList.get(1));
-        System.out.println(myList.remove(1));
+        //System.out.println(myList.remove(1));
         System.out.println("Size is " + myList.size());
+        System.out.println("returned index is " + myList.indexOf(20));
         System.out.println(myList);
+
+
+//        List<Integer> list = new java.util.LinkedList<>();
+//        list.add(0);
+//        list.add(10);
+//        list.add(20);
+//        list.add(30);
+        //list.contains() // boolean
+        //list.indexOf()
     }
 }

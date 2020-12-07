@@ -5,10 +5,6 @@ public class LinkedList<T> {
     private Node head;
     private Node tail;
 
-    public LinkedList() {
-
-    }
-
     // Allows you to instantiate object with multiple values or with an array.
     // String[] myArray = { "value1", "value2", "value3" };
     // LinkedList list = new LinkedList(myArray);
@@ -20,6 +16,10 @@ public class LinkedList<T> {
         for (T value : newValues) {
             add(value);
         }
+    }
+
+    public LinkedList() {
+
     }
 
     @Override
@@ -88,6 +88,42 @@ public class LinkedList<T> {
             prevNode = null;
         }
         return (T) nodeToRemove.value;
+    }
+
+    public Boolean contains(T value) {
+        return null;
+    }
+
+    public Integer indexOf(T value) {
+        if (head == null) return -1;
+        if (head.value == value) return 0;
+
+        int index = 0;
+        Node currentNode = head;
+        while (currentNode.getNextNode() != null) {
+            if (currentNode.value == value)
+                break;
+
+            currentNode = currentNode.getNextNode();
+            index++;
+        }
+        return index;
+
+
+//        // Start at 1 because we know there is a head node.
+//        int index = 0;
+//        Node currentNode = head;
+//        boolean nextNodeIsNull = false;
+//        while (!nextNodeIsNull) {
+//            Node nextNode = currentNode.getNextNode();
+//            if (nextNode == null) {
+//                nextNodeIsNull = true;
+//                break;
+//            }
+//            currentNode = nextNode;
+//            index++;
+//        }
+//        return index;
     }
 
     private Node getNodeAtIndex(Integer index) {
