@@ -101,35 +101,35 @@ public class LinkedList<T> {
         if (head == null) return -1;
         if (head.value == value) return 0;
 
-        Node currentNode = head.getNextNode();
-        int index = 1;
+        int index = 0;
+        Node currentNode = head;
         while (currentNode != null) {
             if (currentNode.value == value)
                 return index;
 
-            currentNode = currentNode.getNextNode();
             index++;
+            currentNode = currentNode.getNextNode();
         }
 
         return -1;
     }
 
-    private Node getNodeAtIndex(Integer index) {
-        if (head == null || index < 0) {
-            System.out.println("Index " + index + " is out of range");
+    private Node getNodeAtIndex(Integer givenIndex) {
+        if (head == null || givenIndex < 0) {
+            System.out.println("Index " + givenIndex + " is out of range");
+            return null;
         }
+        int index = 0;
         Node currentNode = head;
-        for (int i = 0; i <= index; i++) {
-            if (i == index) {
+        while (currentNode != null) {
+            if (index == givenIndex)
                 return currentNode;
-            }
-            currentNode = currentNode.getNextNode();
 
-            if (currentNode == null) {
-                System.out.println("Index is out of range of list.");
-                return null;
-            }
+            index++;
+            currentNode = currentNode.getNextNode();
         }
+
+        System.out.println("Index " + index + " is out of range");
         return null;
     }
 
@@ -138,17 +138,10 @@ public class LinkedList<T> {
         if (head == null) {
             return 0;
         }
-        // Start at 1 because we know there is a head node.
-        int nodeCount = 1;
+        int nodeCount = 0;
         Node currentNode = head;
-        boolean nextNodeIsNull = false;
-        while (!nextNodeIsNull) {
-            Node nextNode = currentNode.getNextNode();
-            if (nextNode == null) {
-                nextNodeIsNull = true;
-                break;
-            }
-            currentNode = nextNode;
+        while (currentNode != null) {
+            currentNode = currentNode.getNextNode();
             nodeCount++;
         }
         return nodeCount;

@@ -36,12 +36,11 @@ public class Main {
 
         LinkedList<Integer> myList = new LinkedList<>();
         myList.add(0);
-        myList.add(10);
         myList.add(20);
-        System.out.println("index 1 is " + myList.get(1));
+        System.out.println("index x is " + myList.get(1));
         //System.out.println(myList.remove(1));
         System.out.println("Size is " + myList.size());
-        System.out.println("returned index is " + myList.indexOf(10));
+        //System.out.println("returned index is " + myList.indexOf(10));
         System.out.println(myList);
 
 
