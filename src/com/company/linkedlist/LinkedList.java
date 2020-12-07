@@ -14,16 +14,16 @@ public class LinkedList {
         StringBuffer sb = new StringBuffer();
         Integer listSize = size();
         if (listSize == 0)
-            return "A custom implementation of a Linked List. This list holds no values.";
+            return "A custom implementation of a Linked List. This list currently holds no values.";
 
         Node currentNode = head;
         for (int i = 0; i < listSize; i++) {
             if (i == 0) {
-                sb.append(String.format("[%s, ", currentNode));
+                sb.append(String.format("[%s, ", currentNode.value));
             } else if (i < listSize - 1) {
-                sb.append(String.format("%s, ", currentNode));
+                sb.append(String.format("%s, ", currentNode.value));
             } else {
-                sb.append(String.format("%s]", currentNode));
+                sb.append(String.format("%s]", currentNode.value));
             }
             currentNode = currentNode.getNextNode();
         }
@@ -55,7 +55,7 @@ public class LinkedList {
     // Removes node from list and returns it.
     public Node remove(Integer index) {
         if (index == 0) {
-            // Set 2nd node in list to be the new head
+            // Sets second node in list to be the new head
             Node currentHeadNode = head;
             Node newHeadNode = head.getNextNode();
             head = newHeadNode;
@@ -112,12 +112,5 @@ public class LinkedList {
             nodeCount++;
         }
         return nodeCount;
-    }
-
-    private Node checkNextNode(Node currentNode) {
-        Node nextNode = currentNode.getNextNode();
-        if (nextNode != null)
-            return nextNode;
-        return null;
     }
 }
