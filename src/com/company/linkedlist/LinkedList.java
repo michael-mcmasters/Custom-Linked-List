@@ -66,24 +66,30 @@ public class LinkedList<T> {
     // Removes node from list and returns it.
     public T remove(Integer index) {
         if (index == 0) {
-            // Sets second node in list to be the new head
-            Node currentHeadNode = head;
-            Node newHeadNode = head.getNextNode();
-            head = newHeadNode;
-            return (T) currentHeadNode.value;
+            return removeFirst();
         }
 
         Node prevNode = getNodeAtIndex(index - 1);
         Node nodeToRemove = prevNode.getNextNode();
         Node nextNode = nodeToRemove.getNextNode();
-        if (nextNode != null) {
-            prevNode.setNextNode(nextNode);
-        } else {
+        if (nextNode == null) {
             // If removed node didn't have a node after it, it was the tail. Set prevNode to be the tail.
             tail = prevNode;
             prevNode.setNextNode(null);
+        } else {
+            prevNode.setNextNode(nextNode);
         }
+
         return (T) nodeToRemove.value;
+    }
+
+    // O(1) Constant Time.
+    public T removeFirst() {
+        // Sets second node in list to be the new head
+        Node currentHeadNode = head;
+        Node newHeadNode = head.getNextNode();
+        head = newHeadNode;
+        return (T) currentHeadNode.value;
     }
 
     // O(n) Linear Time.

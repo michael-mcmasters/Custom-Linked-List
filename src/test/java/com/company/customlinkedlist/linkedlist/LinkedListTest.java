@@ -174,6 +174,24 @@ public class LinkedListTest {
     }
 
     @Test
+    public void removeFirsstTest() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("second");
+        list.add("third");
+        list.add("fourth");
+        list.removeFirst();
+
+        // When
+        String expected = "[second, third, fourth]";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     // Get first element
     public void getTestA() {
         // Given
