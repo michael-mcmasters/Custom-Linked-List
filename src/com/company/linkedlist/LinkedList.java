@@ -65,9 +65,7 @@ public class LinkedList<T> {
     // O(n) Linear Time.
     // Removes node from list and returns it.
     public T remove(Integer index) {
-        if (index == 0) {
-            return removeFirst();
-        }
+        if (index == 0) return removeFirst();
 
         Node prevNode = getNodeAtIndex(index - 1);
         Node nodeToRemove = prevNode.getNextNode();
@@ -84,6 +82,7 @@ public class LinkedList<T> {
     }
 
     // O(1) Constant Time.
+    // Removes first element.
     public T removeFirst() {
         // Sets second node in list to be the new head
         Node currentHeadNode = head;
@@ -92,10 +91,19 @@ public class LinkedList<T> {
         return (T) currentHeadNode.value;
     }
 
+    // O(n) Linear Time. Need to loop through every node to get the node right before the tail.
+    // (since this is a singly linked list, and elements are added to the tail rather than the head.)
+    // Removes last element.
     public T removeLast() {
-        if (head == null){
-            return null;
+        if (head == null) return null;
+
+        // List only has 1 item. Tell list to stop pointing at head.
+        else if (head != null && tail == null) {
+            Node prevHead = head;
+            head = null;
+            return (T) prevHead.value;
         }
+
         Node prevNode = head;
         Node currentNode = head.getNextNode();
         // If node is pointing to a null node, it is the tail. prevNode is the node before the tail.

@@ -192,7 +192,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void removeLastTest() {
+    public void removeLastTestA() {
         // Given
         LinkedList<String> list = new LinkedList<>();
         list.add("first");
@@ -203,6 +203,37 @@ public class LinkedListTest {
 
         // When
         String expected = "[first, second, third]";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void removeLastTestB() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.removeLast();
+
+        // When
+        String expected = "A custom implementation of a Linked List. This list currently holds no values.";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void removeLastTestC() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("second");
+        list.removeLast();
+
+        // When
+        String expected = "[first]";
         String actual = list.toString();
 
         // Then
