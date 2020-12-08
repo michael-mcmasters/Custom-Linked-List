@@ -92,6 +92,22 @@ public class LinkedList<T> {
         return (T) currentHeadNode.value;
     }
 
+    public T removeLast() {
+        if (head == null){
+            return null;
+        }
+        Node prevNode = head;
+        Node currentNode = head.getNextNode();
+        // If node is pointing to a null node, it is the tail. prevNode is the node before the tail.
+        while (currentNode.getNextNode() != null) {
+            prevNode = currentNode;
+            currentNode = currentNode.getNextNode();
+        }
+        tail = prevNode;
+        tail.setNextNode(null);
+        return (T) currentNode.value;
+    }
+
     // O(n) Linear Time.
     // Gets value at index.
     public T get(Integer index) {
