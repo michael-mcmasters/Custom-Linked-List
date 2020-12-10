@@ -441,4 +441,23 @@ public class LinkedListTest {
         // Then
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void reverseTest() {
+        // Given
+        LinkedList<String> list = new LinkedList<>();
+        list.add("first");
+        list.add("second");
+        list.add("third");
+        list.add("fourth");
+        list.add("fifth");
+        list.reverse();
+
+        // When
+        String expected = "[fifth, fourth, third, second, first]";
+        String actual = list.toString();
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+    }
 }

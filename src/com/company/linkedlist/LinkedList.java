@@ -175,6 +175,23 @@ public class LinkedList<T> {
         return nodeCount;
     }
 
+    // O(n) Linear Time
+    // Points each node in the list to the node before it to reverse it.
+    // 1 -> 2 -> 3 -> 4 -> 5 becomes 5 -> 4 > 3 -> 2 -> 1
+    public void reverse() {
+        Node prevNode = null;
+        Node currentNode = head;
+        Node nextNode = null;
+        while (currentNode != null) {
+            nextNode = currentNode.getNextNode();
+            currentNode.setNextNode(prevNode);
+            prevNode = currentNode;
+            currentNode = nextNode;
+
+        }
+        head = prevNode;
+    }
+
     // O(n) Linear Time.
     // Helper method that returns the node at the given index.
     private Node getNodeAtIndex(Integer givenIndex) {
